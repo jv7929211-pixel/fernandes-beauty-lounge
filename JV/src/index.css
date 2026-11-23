@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: #fbf8f4;
+    color: #2c2522;
+    font-family: "Manrope", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: #dca8ae;
+    color: #2c2522;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    color: #9b626a;
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+
+  .nav-link {
+    position: relative;
+  }
+
+  .nav-link::after {
+    background: #b56f78;
+    bottom: -0.5rem;
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 300ms ease;
+    width: 100%;
+  }
+
+  .nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .service-row {
+    transition:
+      background-color 300ms ease,
+      padding 300ms ease;
+  }
+
+  .service-row:hover {
+    background: rgb(255 255 255 / 0.035);
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .form-label {
+    color: #7a6760;
+    display: grid;
+    font-size: 0.625rem;
+    font-weight: 700;
+    gap: 0.55rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .form-field {
+    appearance: none;
+    background: transparent;
+    border-bottom: 1px solid #cfbeb6;
+    color: #2c2522;
+    font-family: "Manrope", sans-serif;
+    font-size: 0.875rem;
+    letter-spacing: 0;
+    outline: none;
+    padding: 0.55rem 0 0.85rem;
+    text-transform: none;
+    transition: border-color 200ms ease;
+    width: 100%;
+  }
+
+  .form-field:focus {
+    border-color: #b56f78;
+  }
+
+  .form-field::placeholder {
+    color: #ad9d96;
+  }
+
+  .footer-title {
+    color: #dca8ae;
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
